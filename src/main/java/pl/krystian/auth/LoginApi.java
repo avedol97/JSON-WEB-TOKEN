@@ -14,9 +14,9 @@ public class LoginApi {
 
     @PostMapping("/login")
     public String get(@RequestBody User user) {
-
+        //Sprawdzienie czy użytkownik istnieje w bazie danych oraz
+        //czy login i hasło jest poprawne
         long currentTimeMillis = System.currentTimeMillis();
-        System.out.println(new Date(currentTimeMillis + 20000));
         return Jwts.builder()
                 .setSubject(user.getLogin())
                 .claim("roles", "user") //rola
